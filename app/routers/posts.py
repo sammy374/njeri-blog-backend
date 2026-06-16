@@ -7,7 +7,8 @@ from jose import jwt, JWTError
 from typing import Optional
 
 router = APIRouter()
-SECRET_KEY = "supersecretkey"
+import os
+SECRET_KEY = os.environ.get("SECRET_KEY", "supersecretkey")
 
 def get_db():
     db = SessionLocal()

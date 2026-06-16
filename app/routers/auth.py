@@ -2,13 +2,13 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from jose import jwt
 from datetime import datetime, timedelta
+import os
 
 router = APIRouter()
 
-# Your sister's login details — change these!
-ADMIN_USERNAME = "njeri"
-ADMIN_PASSWORD = "njeri1234"
-SECRET_KEY = "supersecretkey"
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "njeri")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "njeri1234")
+SECRET_KEY = os.environ.get("SECRET_KEY", "supersecretkey")
 
 class LoginData(BaseModel):
     username: str
