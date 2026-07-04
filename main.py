@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import engine, Base
 from app.models.post import Post
-from app.routers import posts
-from app.routers import auth
+from app.models.about import About
+from app.models.social import Social
+from app.models.travel import TravelPin
+from app.routers import posts, auth, about, social, travel
 
 app = FastAPI()
 
@@ -20,6 +22,9 @@ app.add_middleware(
 
 app.include_router(posts.router)
 app.include_router(auth.router)
+app.include_router(about.router)
+app.include_router(social.router)
+app.include_router(travel.router)
 
 @app.get("/")
 def home():
