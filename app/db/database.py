@@ -4,7 +4,6 @@ import os
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./blog.db")
 
-# Fix for PostgreSQL URL from Render
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
