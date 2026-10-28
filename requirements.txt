@@ -4,5 +4,6 @@ sqlalchemy
 python-jose
 pydantic
 psycopg2-binary
+psycopg[binary]
 python-dotenv
 slowapi
