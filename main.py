@@ -8,7 +8,7 @@ from app.models.post import Post
 from app.models.about import About
 from app.models.social import Social
 from app.models.travel import TravelPin
-from app.routers import posts, auth, about, social, travel
+from app.routers import posts, auth, about, social, travel, upload
 
 limiter = Limiter(key_func=get_remote_address)
 
@@ -32,6 +32,7 @@ app.include_router(auth.router)
 app.include_router(about.router)
 app.include_router(social.router)
 app.include_router(travel.router)
+app.include_router(upload.router)
 
 @app.get("/")
 def home():
