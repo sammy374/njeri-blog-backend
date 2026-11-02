@@ -53,6 +53,7 @@ async def upload_image(file: UploadFile = File(...)):
 
     if res.status_code not in (200, 201):
         print("SUPABASE UPLOAD ERROR:", res.status_code, res.text)
+        print("SUPABASE UPLOAD ERROR:", res.status_code, res.text)
         raise HTTPException(status_code=500, detail="Upload to storage failed")
 
     return {"url": f"{SUPABASE_URL}/storage/v1/object/public/{BUCKET}/{name}"}
